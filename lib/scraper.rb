@@ -7,12 +7,12 @@ class Scraper
   # is a class method that scrapes the student index page ('./fixtures/student-site/index.html')
   # and a returns an array of hashes in which each hash represents one student
   def self.scrape_index_page(index_url)
-    html = Nokogiri::HTML(open(index_url))
+    index_html = Nokogiri::HTML(open(index_url))
 
     students = []
 
     # 1. in each student card
-    html.css(".roster-cards-container").each do |student_card|
+    index_html.css(".roster-cards-container").each do |student_card|
       # 2. in each div that links to the student's profile page
       student_card.css(".student-card a").each do |student|
         # 3. get student info
