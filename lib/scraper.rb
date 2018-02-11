@@ -19,9 +19,13 @@ class Scraper
         student_profile_link = "#{student.attr('href')}" # link to student's profile page
         student_location = student.css(".student-location").text # student's location
         student_name = student.css("student-name").text # student's name
+
+        # return value of this method should be an array of hashes in which each hash represents a single student
+        # The keys of the individual student hashes should be :name, :location and :profile_url
+        students << {name: student_name, location: student_location, profile_url: student_profile_link}
       end
     end
-
+    students
   end
 
   def self.scrape_profile_page(profile_url)
