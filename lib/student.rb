@@ -35,6 +35,8 @@ end
 
 
 =begin
+  source: https://stackoverflow.com/questions/3337285/what-does-send-do-in-ruby
+  
   #send method sends a message to an object instance and its ancestors in class hierarchy
   until some method reacts (because its name matches the first argument).
 

@@ -18,7 +18,7 @@ class Scraper
         # 3. get student info
         student_profile_link = "#{student.attr('href')}" # link to student's profile page
         student_location = student.css(".student-location").text # student's location
-        student_name = student.css("student-name").text # student's name
+        student_name = student.css(".student-name").text # student's name
 
         # return value of this method should be an array of hashes in which each hash represents a single student
         # The keys of the individual student hashes should be :name, :location and :profile_url
