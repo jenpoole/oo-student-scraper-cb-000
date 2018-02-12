@@ -4,10 +4,12 @@ class Student
 
   @@all = []
 
-  # Student #new takes in an argument of a hash and sets that new student's attributes using the key/value pairs of that hash.
-  # Student #new adds that new student to the Student class' collection of all existing students, stored in the `@@all` class variable.
+  # 1. Student #new takes in an argument of a hash
   def initialize(student_hash)
-
+    student_hash.each do |attribute, value|
+      self.send("#{attribute}=", value) # 2. and sets that new student's attributes using the key/value pairs of that hash
+    end
+    @@all << self # 3. add that new student to the Student class' collection of all existing students, stored in the `@@all` class variable.
   end
 
   # Student .create_from_collection uses the Scraper class to create new students with the correct name and location.
@@ -25,3 +27,23 @@ class Student
     @@all
   end
 end
+
+
+=begin
+  #send method sends a message to an object instance and its ancestors in class hierarchy
+  until some method reacts (because its name matches the first argument).
+
+  Practically speaking, these lines are equivalent:
+
+    1.send('+', 2)
+    #=> 3
+    Translation: Apply the addition method with a value of 2, to the object, which is 1
+
+    1.+(2)
+    #=> 3
+    Translation: Call the addition method with 2 as an argument, on the object, which is 1
+
+    1 + 2
+    #=> 3
+    Translation: Add 2 to the object, which is 1
+=end
